@@ -988,9 +988,10 @@ Two ways, depending on how precise you need to be:
 - **Robust at any URL depth:** the page sets **`<base href="/">`** so the relative asset links and
   the JS-injected chrome (logo, nav, footer) resolve from the site root even when the 404 is served
   for a deep unknown path. Also carries `<meta name="robots" content="noindex">`.
-- **CSS added (`css/styles.css` §24):** `.err`, `.err-inner`, `.err-code`, `.err-actions`,
-  `.err-links`, `.err-blob`, `.err-route` (+ `.lane`/`.port`/`.ship`), and the `errFloat` /
-  `errDrift` / `errSail` keyframes.
+- **CSS added (`css/styles.css` §24):** `.errpage` (section), `.err-inner`, `.err-code`,
+  `.err-actions`, `.err-links`, `.err-blob`, `.err-route` (+ `.lane`/`.port`/`.ship`), and the
+  `errFloat` / `errDrift` / `errSail` keyframes. *(The section class is **`.errpage`**, not `.err`
+  — see §15.21: `.err` is the form-validation message class and the original `.err` name collided.)*
 
 ### 15.16 Social-share meta normalization (§9 SEO, all pages — head only)
 - **What:** standardized the Open Graph / Twitter Card tags across **all 14 `.html` pages** so
@@ -1062,3 +1063,23 @@ Two ways, depending on how precise you need to be:
   a PDP render a plain title as before. The linked title **inherits the heading's navy colour** at
   rest (looks identical), with an emerald hover + underline and a keyboard `:focus-visible` ring
   (`.p-card h3 a` in `css/styles.css`); the dead `.detail-link` style was deleted.
+
+### 15.21 Fix: 404 `.err` class collided with form-validation `.err` (home RFQ panel, §14.8)
+- **Symptom:** on the home **"Ready to Source…"** RFQ panel (§14.8), the three capture fields
+  showed enormous empty gaps and their validation messages rendered permanently, far below the
+  inputs (the "Generate RFQ Now" button pushed off-screen).
+- **Cause:** the 404 page (§15.15) introduced a section class named **`.err`**
+  (`min-height: 100vh; display: grid; place-items: center; …`). That name **collides with the
+  long-standing form-validation message class `.err`** (§7). The home RFQ uses `.rfq-form .field`
+  (not `.form-field`), which had no rule hiding its `.err` spans, so each error span inherited the
+  404 styling — becoming a full-viewport-height box, always visible. The contact and
+  request-a-quote forms (which use `.form-field`) were also affected, but only after a failed submit.
+- **Fix:**
+  1. Renamed the 404 section class **`.err` → `.errpage`** (and the dependent `.errpage .eyebrow`,
+     `.errpage h1`, `.errpage p` selectors); updated `404.html`. The hyphenated `.err-*` children
+     (`.err-inner`, `.err-code`, etc.) never collided and were left unchanged.
+  2. Extended the validation-message rules to cover the RFQ's `.field` variant — added
+     `.rfq-form .field .err` / `.rfq-form .field.invalid .err` alongside the existing
+     `.form-field` rules — so RFQ errors are **hidden until `forms.js` flags the field `.invalid`**,
+     then shown as small red text, matching the other forms.
+- Files touched: `css/styles.css`, `404.html`.
