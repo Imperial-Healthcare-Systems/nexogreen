@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- base = site root so the JS-injected header/footer links and the assets below
+       resolve correctly even when this 404 is served for a deep/unknown URL -->
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found (404) — NexoGreen EXIM</title>
+  <meta name="description" content="The page you were looking for has gone off-route. Head back to NexoGreen EXIM's home, browse our export products, or get in touch with our trade desk." />
+  <meta name="robots" content="noindex" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexogreenexim.com/404.html" />
+  <meta property="og:title" content="Page not found (404) — NexoGreen EXIM" />
+  <meta property="og:description" content="The page you were looking for has gone off-route. Head back to NexoGreen EXIM's home, browse our export products, or get in touch with our trade desk." />
+  <meta property="og:image" content="https://nexogreenexim.com/assets/social/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page not found (404) — NexoGreen EXIM" />
+  <meta name="twitter:description" content="The page you were looking for has gone off-route. Head back to NexoGreen EXIM's home, browse our export products, or get in touch with our trade desk." />
+  <meta name="twitter:image" content="https://nexogreenexim.com/assets/social/og-image.jpg" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="error">
+  <main id="main">
+    <section class="err">
+      <!-- drifting aurora accents -->
+      <span class="err-blob b1" aria-hidden="true"></span>
+      <span class="err-blob b2" aria-hidden="true"></span>
+
+      <!-- animated shipping lane with a paper-plane gliding off-route -->
+      <svg class="err-route" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path class="lane" d="M-60 470 C 360 300, 840 560, 1260 200" />
+        <circle class="port" cx="172" cy="414" r="7" />
+        <circle class="port port--end" cx="1028" cy="340" r="6" />
+        <path class="ship" d="M-16 -10 L20 0 L-16 10 L-8 0 Z" />
+      </svg>
+
+      <div class="err-inner">
+        <span class="eyebrow">Error 404 · Off course</span>
+        <p class="err-code">404</p>
+        <h1>This shipment took a wrong turn</h1>
+        <p>The page you're looking for has gone off-route — moved, renamed, or never made it through customs. Let's get you back on a clear lane.</p>
+        <div class="err-actions">
+          <a class="btn btn--primary btn--lg" href="index.html">Back to Home
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--on-dark btn--lg" href="products.html">Browse Products</a>
+        </div>
+        <nav class="err-links" aria-label="Popular destinations">
+          <a href="agriculture.html">Agriculture</a>
+          <a href="timber.html">Timber &amp; Forest Produce</a>
+          <a href="leather.html">Leather</a>
+          <a href="global-markets.html">Logistics Network</a>
+          <a href="request-a-quote.html">Request a Quote</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

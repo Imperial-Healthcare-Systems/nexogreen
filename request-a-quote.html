@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Quote (RFQ) | NexoGreen EXIM</title>
+  <meta name="description" content="Request a freight-inclusive quote from NexoGreen EXIM. Tell us your product, destination port and target volume — we'll respond with availability, specifications and pricing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexogreenexim.com/request-a-quote.html" />
+  <meta property="og:title" content="Request a Quote — NexoGreen EXIM" />
+  <meta property="og:description" content="Tell us your product, destination and volume for a competitive export quote." />
+  <meta property="og:image" content="https://nexogreenexim.com/assets/social/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Request a Quote — NexoGreen EXIM" />
+  <meta name="twitter:description" content="Tell us your product, destination and volume for a competitive export quote." />
+  <meta name="twitter:image" content="https://nexogreenexim.com/assets/social/og-image.jpg" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://nexogreenexim.com/request-a-quote.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="products">
+  <main id="main">
+    <section class="page-hero page-hero--plain">
+      <div class="container">
+        <p class="crumb"><a href="index.html">Home</a> / Request a Quote</p>
+        <h1>Request a freight-inclusive quote</h1>
+        <p>Share the essentials and our trade desk will respond with availability, specifications and competitive pricing. The more detail you provide, the faster we can quote.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:880px">
+        <form class="form-card reveal" data-form aria-label="Request for quote">
+          <h2 style="font-size:1.4rem;margin-bottom:6px">Generate your RFQ</h2>
+          <p class="form-note" style="margin-bottom:20px">Fields marked <span style="color:var(--accent)">*</span> are required.</p>
+          <div class="form-grid">
+            <div class="form-field"><label for="q-name">Name <span class="req">*</span></label><input id="q-name" name="name" type="text" required /><span class="err">Please enter your name.</span></div>
+            <div class="form-field"><label for="q-company">Company <span class="req">*</span></label><input id="q-company" name="company" type="text" required /><span class="err">Please enter your company.</span></div>
+            <div class="form-field"><label for="q-email">Corporate Email <span class="req">*</span></label><input id="q-email" name="email" type="email" required /><span class="err">Enter a valid corporate email.</span></div>
+            <div class="form-field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" /></div>
+            <div class="form-field"><label for="q-dest">Country / Destination Port <span class="req">*</span></label><input id="q-dest" name="destination" type="text" required /><span class="err">Where is this shipping to?</span></div>
+            <div class="form-field"><label for="q-product">Product / Material Category</label>
+              <select id="q-product" name="product">
+                <option value="">Select a category</option>
+                <option>Agriculture Commodities</option>
+                <option>Timber &amp; Forestry Produce</option>
+                <option>Premium Treated Leather</option>
+                <option>Other / Not sure</option>
+              </select>
+            </div>
+            <div class="form-field"><label for="q-volume">Target Volume / Quantity</label><input id="q-volume" name="volume" type="text" placeholder="e.g. 25" /></div>
+            <div class="form-field"><label for="q-unit">Unit</label>
+              <select id="q-unit" name="unit">
+                <option>Metric Tonnes (MT)</option>
+                <option>Kilograms (KG)</option>
+                <option>Containers (FCL)</option>
+                <option>Pieces / Hides</option>
+              </select>
+            </div>
+            <div class="form-field"><label for="q-price">Target price (optional)</label><input id="q-price" name="price" type="text" /></div>
+            <div class="form-field"><label for="q-pack">Packaging requirements (optional)</label><input id="q-pack" name="packaging" type="text" /></div>
+            <div class="form-field full"><label for="q-message">Message / notes</label><textarea id="q-message" name="message"></textarea></div>
+          </div>
+          <div class="hp" aria-hidden="true"><label>Leave blank<input type="text" name="company_url" tabindex="-1" autocomplete="off" /></label></div>
+          <div style="margin-top:22px"><button class="btn btn--primary btn--lg btn--block" type="submit">Generate RFQ Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          <div class="form-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

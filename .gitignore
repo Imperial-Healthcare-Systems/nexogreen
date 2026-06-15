@@ -1,0 +1,58 @@
+# ───────────────────────── OS / filesystem cruft ─────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ───────────────────────── Editor / IDE ─────────────────────────
+# Keep .vscode/ shared if it holds useful workspace settings; ignore the noise.
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Claude Code — local-only settings & caches (keep the shared config if you add one)
+.claude/settings.local.json
+
+# ───────────────────────── Secrets / env ─────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# ───────────────────────── Logs / temp ─────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.tmp
+*.bak
+*.orig
+
+# ───────────────────────── Node / tooling (if you later add a build step) ─────────────────────────
+node_modules/
+.npm/
+.cache/
+.parcel-cache/
+dist/
+build/
+.vite/
+
+# ───────────────────────── Misc ─────────────────────────
+*.zip
+*.tar.gz
+.sass-cache/

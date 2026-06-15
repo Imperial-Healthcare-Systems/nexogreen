@@ -1,0 +1,285 @@
+================================================================================
+NexoGreen EXIM Private Limited — PRIVACY POLICY
+================================================================================
+Working draft prepared 13 June 2026.
+This is a single text document with two parts:
+  PART A — How this policy was drafted, and what you must finalise before go-live.
+  PART B — The privacy policy itself (ready to paste into legal.html / a new
+           privacy-policy.html page).
+================================================================================
+
+
+================================================================================
+PART A — DRAFTING NOTES & PROCESS  (internal — do NOT publish this part)
+================================================================================
+
+1. WHAT THIS POLICY IS BASED ON
+   The policy below was written to match what the NexoGreen EXIM website
+   ACTUALLY does today, not a generic template. Specifically:
+
+   - DATA COLLECTED: Two forms only.
+       • Contact form  -> name, company, corporate email, phone, country,
+         message/description.
+       • Request-a-Quote (RFQ) form -> name, company, corporate email, phone,
+         destination port/country, product category, volume, unit, target
+         price, packaging notes, message.
+     Both are B2B business-contact details. The site does not ask for, and you
+     should not collect, sensitive personal data (financial account numbers,
+     government IDs, health, biometrics, etc.) through these forms.
+
+   - FORM PROCESSING: A third-party form service (Formspree / Web3Forms) is the
+     intended processor. In js/forms.js the endpoint is still the placeholder
+     "YOUR_FORMSPREE_ENDPOINT" and no live submission happens yet (Phase 1
+     confirms receipt in the browser only). The policy reflects that a
+     third-party form processor is/will be used.
+
+   - THIRD PARTIES THAT RECEIVE DATA:
+       • Google Fonts (fonts.googleapis.com / fonts.gstatic.com) — loaded on
+         every page; Google receives the visitor's IP address when fonts load.
+       • The form service (above).
+       • Your static web host — keeps standard server access logs (IP, time,
+         page, user agent).
+       • WhatsApp (wa.me link) — only if a visitor chooses to click through to
+         chat; no data is sent unless they do.
+
+   - NO TRACKING TODAY: There is currently NO Google Analytics, no Tag Manager,
+     no Meta/Facebook pixel, no advertising cookies, and no cookie banner code
+     anywhere in the site. The policy therefore states the site uses no tracking
+     or advertising cookies. >>> If you later add analytics or a chat widget,
+     you MUST update the Cookies and Third-Parties sections. <<<
+
+2. LEGAL FRAMEWORK USED
+   - India's Digital Personal Data Protection Act, 2023 (DPDP Act) — the primary
+     law. It requires: a clear notice of purpose, a lawful basis (consent or
+     "legitimate use"), data-principal rights (access, correction, erasure,
+     grievance redressal, nomination), and a named contact for grievances.
+   - Information Technology Act, 2000 and the IT (Reasonable Security Practices
+     ... Sensitive Personal Data or Information) Rules, 2011 (SPDI Rules) — still
+     relevant; require a published privacy policy and reasonable security.
+   - A short international-transfer / overseas-customer note is included because
+     NexoGreen serves global markets (EU/UK buyers may invoke GDPR-style rights).
+     This is a light touch, not a full GDPR controller policy. If you actively
+     market to EU residents and want full GDPR coverage, tell me and I'll expand
+     the "Your rights" and "International transfers" sections.
+
+3. MARKET-RESEARCH REFERENCE
+   The tone and structure follow the B2B commodity-trader policies you reviewed
+   (Olam, Agrocorp, Pisum, etc.): concise, business-contact focused, "we do not
+   sell your data," clear retention and security statements. Those companies are
+   far larger and run analytics/recruitment portals, so their policies cover
+   cookies, careers data and CCTV that do NOT apply to your static brochure site.
+   I deliberately did NOT copy those clauses — including data practices you don't
+   actually have would be misleading and is itself a compliance risk. Copying
+   another company's policy text verbatim is also not advisable (it's their
+   copyrighted wording and won't match your operations).
+
+4. PLACEHOLDERS YOU MUST FILL BEFORE PUBLISHING  (search for "[[ ]]")
+   [[GRIEVANCE_OFFICER_NAME]]   — a named person responsible for privacy
+                                  queries/grievances (DPDP requires a contact;
+                                  can be the CEO, Dr. Kalirajan Arunachalam, or a
+                                  designated officer).
+   [[PRIVACY_EMAIL]]            — suggested: privacy@nexogreenexim.com (confirm
+                                  the final domain; info@nexogreenexim.com works
+                                  too).
+   [[EFFECTIVE_DATE]]           — the date you publish it.
+   [[FORM_SERVICE_NAME]]        — write "Formspree" or "Web3Forms" once chosen.
+   Also confirm: the registered address and phone are already in legal.html and
+   reused below — verify they are final.
+
+5. WHERE TO PUT IT
+   Recommended: create a new page privacy-policy.html using the same header/
+   footer/scripts as legal.html, paste PART B into the .prose container, and link
+   to it from the footer of every page (and from the form pages, next to the
+   submit button: "By submitting, you agree to our Privacy Policy"). You can also
+   replace the short "Privacy note" block currently in legal.html with a link to
+   the full policy.
+
+
+================================================================================
+PART B — PRIVACY POLICY  (publish this part)
+================================================================================
+
+PRIVACY POLICY
+
+Last updated: [[EFFECTIVE_DATE]]
+
+1. INTRODUCTION
+
+NexoGreen EXIM Private Limited ("NexoGreen EXIM", "we", "us" or "our") is a
+private limited company registered in Tamil Nadu, India, operating as an
+import–export trading house in agricultural products, timber and forest produce,
+and responsibly sourced leather. We respect your privacy and are committed to
+protecting the personal data you share with us.
+
+This Privacy Policy explains what personal data we collect through our website
+(the "Site"), why we collect it, how we use and protect it, and the rights
+available to you. It is published in accordance with the Information Technology
+Act, 2000 and the rules made under it, and India's Digital Personal Data
+Protection Act, 2023 (the "DPDP Act").
+
+By using this Site or submitting an enquiry or quotation request to us, you
+acknowledge that you have read and understood this Policy.
+
+2. WHO WE ARE (DATA FIDUCIARY)
+
+For the purposes of the DPDP Act, NexoGreen EXIM Private Limited is the Data
+Fiduciary responsible for your personal data.
+
+   Registered office: ½ A Kuthuriyar Street, Singamparai, Mukkudal,
+   Ambasamudram, Tirunelveli District – 627601, Tamil Nadu, India.
+   Email: [[PRIVACY_EMAIL]]
+   Phone / WhatsApp: +91 78455 82769
+
+3. THE PERSONAL DATA WE COLLECT
+
+We collect only the information needed to respond to your business enquiry and
+to provide quotations and trade documentation. This is primarily business-contact
+information that you provide voluntarily.
+
+(a) Information you give us through our forms
+    • Contact form: your name, company, corporate email address, phone number,
+      country, and the contents of your message.
+    • Request-a-Quote (RFQ) form: your name, company, corporate email address,
+      phone number, destination country/port, product or material category,
+      target volume and unit, target price, packaging requirements, and any
+      notes you add.
+
+(b) Information collected automatically
+    When you visit the Site, our hosting provider and certain service providers
+    may automatically record standard technical information such as your IP
+    address, browser type, device information, the pages you view, and the date
+    and time of your visit. This is used for security, to keep the Site running,
+    and to understand general usage. Our web fonts are served by Google Fonts,
+    which receives your IP address in order to deliver the fonts to your browser.
+
+We do NOT knowingly collect sensitive personal data through this Site (such as
+financial account details, government identifiers, health or biometric data).
+Please do not submit such information through our forms; share trade-sensitive
+or financial details only through the secure channels we agree with you directly.
+
+4. HOW AND WHY WE USE YOUR DATA (PURPOSES)
+
+We use your personal data only for the following purposes:
+    • to respond to your enquiry and to prepare and send quotations,
+      specifications and trade documentation;
+    • to communicate with you about your request, orders, shipments and related
+      logistics;
+    • to maintain our business records and to comply with applicable tax,
+      customs, export–import and other legal obligations;
+    • to operate, secure and improve the Site; and
+    • to prevent fraud, spam and misuse (for example, our forms use an anti-spam
+      check).
+
+5. LAWFUL BASIS
+
+We process your personal data on the basis of your consent, given when you
+submit a form or contact us, and for the "legitimate uses" permitted under the
+DPDP Act — namely to respond to a request you have made and to fulfil our
+contractual and legal obligations. Where we rely on consent, you may withdraw it
+at any time (see "Your rights" below); withdrawal does not affect processing
+already carried out.
+
+6. COOKIES AND SIMILAR TECHNOLOGIES
+
+This Site does not use advertising cookies, analytics cookies, or third-party
+tracking or profiling technologies. We do not run advertising pixels or sell
+behavioural data. Your browser may store basic technical data required for the
+Site to display correctly. If we introduce analytics or other cookies in the
+future, we will update this Policy and, where required, ask for your consent.
+
+7. SHARING AND DISCLOSURE OF DATA
+
+We do NOT sell, rent or trade your personal data, and we do not share it for
+third-party marketing.
+
+We share data only as necessary:
+    • Service providers (Data Processors) acting on our instructions, including:
+        - our form-handling service, [[FORM_SERVICE_NAME]], which receives and
+          delivers your form submissions to us;
+        - our website hosting provider; and
+        - Google Fonts, which serves fonts and receives your IP address.
+    • Logistics, freight, banking, inspection and customs partners, only where
+      needed to process and fulfil a transaction you have requested.
+    • Legal and regulatory authorities, where we are required to disclose
+      information by law, regulation, court order, or to protect our rights.
+
+If you click our WhatsApp link, you will be taken to WhatsApp and your
+communication there is governed by WhatsApp's own privacy policy.
+
+8. INTERNATIONAL TRANSFERS
+
+We are based in India and operate internationally. Some of our service providers
+(for example, the form service and font provider) may process data on servers
+located outside India. Where personal data is transferred across borders, we
+take reasonable steps to ensure it remains protected and is handled in line with
+this Policy and applicable law. If you are located in the EU/UK or another region
+with specific data-protection rights, those rights are respected to the extent
+applicable; contact us using the details below.
+
+9. DATA RETENTION
+
+We keep your personal data only for as long as needed for the purposes above —
+typically for the duration of our business relationship and enquiry follow-up,
+and thereafter for the period required to meet our legal, tax, customs and
+accounting obligations. When data is no longer required, we securely delete or
+anonymise it.
+
+10. HOW WE PROTECT YOUR DATA
+
+We apply reasonable security practices and procedures to protect personal data
+against unauthorised access, alteration, disclosure or destruction, in line with
+the IT Act and the rules made under it. These include access controls, use of
+reputable service providers, and limiting the data we collect. However, no method
+of transmission over the internet is completely secure, and we cannot guarantee
+absolute security.
+
+11. YOUR RIGHTS
+
+Subject to applicable law, including the DPDP Act, you have the right to:
+    • access a summary of the personal data we hold about you and how we process
+      it;
+    • request correction, completion or updating of inaccurate data;
+    • request erasure of your personal data where it is no longer required;
+    • withdraw any consent you have given;
+    • nominate another individual to exercise your rights in the event of death
+      or incapacity; and
+    • raise a grievance about how we handle your data.
+
+To exercise any of these rights, contact our Grievance Officer (below). We will
+respond within the timeframes required by applicable law. You also have the right
+to register a complaint with the Data Protection Board of India.
+
+12. CHILDREN
+
+This Site and our services are intended for businesses and professionals. We do
+not knowingly collect personal data of children. If you believe a child has
+provided us personal data, please contact us so we can delete it.
+
+13. GRIEVANCE OFFICER / CONTACT
+
+For any questions, requests or complaints regarding this Policy or your personal
+data, please contact:
+
+   Grievance Officer: [[GRIEVANCE_OFFICER_NAME]]
+   NexoGreen EXIM Private Limited
+   ½ A Kuthuriyar Street, Singamparai, Mukkudal, Ambasamudram,
+   Tirunelveli District – 627601, Tamil Nadu, India
+   Email: [[PRIVACY_EMAIL]]
+   Phone / WhatsApp: +91 78455 82769
+
+14. CHANGES TO THIS POLICY
+
+We may update this Policy from time to time to reflect changes in our practices
+or legal requirements. The current version will always be available on this Site,
+with the "Last updated" date revised accordingly. Material changes will be
+highlighted where appropriate.
+
+15. GOVERNING LAW
+
+This Policy is governed by the laws of India. Any disputes relating to it are
+subject to the exclusive jurisdiction of the courts at Tirunelveli, Tamil Nadu,
+India.
+
+================================================================================
+End of policy.
+================================================================================
