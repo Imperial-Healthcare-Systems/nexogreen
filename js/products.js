@@ -147,12 +147,9 @@
         '<span class="hs-badge">HS Code: ' + p.hs + '</span>' +
       '</div>' +
       '<a class="p-cat" href="' + (PAGE[p.cat] || "products.html") + '">' + esc(LABEL[p.cat]) + '</a>' +
-      '<h3>' + esc(p.name) + '</h3>' +
+      '<h3>' + (p.detail ? '<a href="' + esc(p.detail) + '">' + esc(p.name) + '</a>' : esc(p.name)) + '</h3>' +
       '<p class="p-desc">' + esc(p.desc) + '</p>' +
-      '<div class="p-foot">' +
-        (p.detail ? '<a class="detail-link" href="' + esc(p.detail) + '">View details ' + ARROW + '</a>' : '') +
-        '<a class="freight-link" href="' + rfq + '">Request Freight Quote ' + ARROW + '</a>' +
-      '</div>' +
+      '<div class="p-foot"><a class="freight-link" href="' + rfq + '">Request Freight Quote ' + ARROW + '</a></div>' +
     '</article>';
   }
 

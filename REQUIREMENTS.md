@@ -3,7 +3,7 @@
 **Version:** 1.4
 **Date:** 2026-06-15
 **Status:** Approved scope — built; in iteration
-**1.4 changes (SEO, social-share & performance hardening):** A site-wide technical SEO / performance pass. Normalized the **social-share meta tags** on every page — absolute `og:image`, per-page `og:url`, and a full mirrored `twitter:image`/`twitter:title`/`twitter:description` set (plus a complete block added to the previously-bare `404.html`) — documented in **§15.16**. Added **intrinsic `width`/`height`** to every `<img>` (read from the real files), `loading="lazy"` on below-the-fold images, and `fetchpriority="high"` on each page's eager hero image (correcting index's placeholder slideshow dimensions) — documented in **§15.17**. Added a minimal, standards-compliant **`robots.txt`** (allow-all + sitemap reference) and a generated **`sitemap.xml`** (sitemaps.org 0.9, 13 public pages, real `lastmod`, homepage priority 1.0) — documented in **§15.18**.
+**1.4 changes (SEO, social-share & performance hardening):** A site-wide technical SEO / performance pass. Normalized the **social-share meta tags** on every page — absolute `og:image`, per-page `og:url`, and a full mirrored `twitter:image`/`twitter:title`/`twitter:description` set (plus a complete block added to the previously-bare `404.html`) — documented in **§15.16**. Added **intrinsic `width`/`height`** to every `<img>` (read from the real files), `loading="lazy"` on below-the-fold images, and `fetchpriority="high"` on each page's eager hero image (correcting index's placeholder slideshow dimensions) — documented in **§15.17**. Added a minimal, standards-compliant **`robots.txt`** (allow-all + sitemap reference) and a generated **`sitemap.xml`** (sitemaps.org 0.9, 13 public pages, real `lastmod`, homepage priority 1.0) — documented in **§15.18**. Added a root **`README.md`** with a formal demo/evaluation notice (provisional copy, illustrative catalogue) — documented in **§15.19**. Refined the product card so the **product name links to its detail page** (replacing the separate "View details" link) — documented in **§15.20**.
 **1.35 changes (Contact map + first product detail page + 404):** Added the **office location Google Map** on the Contact page (embedded keyless iframe + "Get directions" button, between the contact section and the footer) — documented in **§15.13** with the procedure to update the pinned location. Introduced the **product detail page (PDP)** type with **`rice.html`** as the first instance (overview / range / specifications / CTA, real rice photo, clearly-marked placeholder spec rows) and wired an optional **`detail`** field + **"View details"** card link in `js/products.js` — documented in **§15.14** including how to add more PDPs. Added a branded **`404.html`** error page (animated shipping-lane motif, gradient code, quick destination links) — documented in **§15.15**.
 **1.3 changes (Implementation reconciliation):** Documented the as-built frontend after a full codebase-vs-spec audit. Adds the new **§15 — v1.3 Iteration Change Log** capturing every divergence and refinement made during the build: the rebuilt **home hero slideshow** (now 3 curated slides, §13.1), **inner-page hero banners** + the `page-hero` stacking-context fix (§6.3/§6.4), the **"Show More" pagination** on product listings (§14.2), the **merchandised product order** (§14.2), the **icon-led product card** (image-free) divergence from §14.2, the **`section--pillars` gradient** and sector-card restyle on the home pillars block (§6.1), the **search-dock** layout hardening (§14.6), and — reversing the v1.2 decision — the re-application of **fixed-background parallax to the "Why partner with us" values block** (§13.2 / §13.8.2 / §14.4). Where §15 conflicts with an earlier section, the in-place `**v1.3:**` note and §15 win.
 **1.2 changes (Layout Audit — production hardening):** Folded a full UI/UX layout audit (9 annotated screenshots, 2026-06-13) into the spec to convert the brochure layout into a **streamlined, high-conversion system for international enterprise buyers and procurement officers**. Retuned the palette (§2.5.1) to a deep-navy / emerald production system, standardized typography (§2.5.2) on **Inter** with an engineering-grade px hierarchy, pinned the header to four core links + a single "Inquire Now" CTA (§5.1), rebuilt the home product zone as a filterable 4-column matrix (§6.1, superseding the marquee in §13.8.1), and added a consolidated **Production Design System & Conversion Engineering** spec (§14) covering the 8px spacing system, component anatomy, interaction patterns, WCAG 2.1 AA fixes, and the multi-step RFQ panel. All new requirements cross-reference the business values, regulatory licenses, and HS-coded product data in `Nexogreen EXIM project.md`.
@@ -139,9 +139,14 @@ not place emerald fills outside interactive controls.**
 ├── contact.html
 ├── request-a-quote.html       (RFQ)
 ├── legal.html                 (optional — legal IDs, privacy)
+├── rice.html                  (product detail page — first PDP, §15.14)
+├── 404.html                   (branded error page, noindex — §15.15)
 ├── /assets                    (logos, images — already present)
 ├── /css/                      (styles)
 ├── /js/                       (main.js, products.js, forms.js, animations)
+├── robots.txt                 (allow-all + sitemap reference — §15.18)
+├── sitemap.xml                (sitemaps.org 0.9, public pages — §15.18)
+├── README.md                  (project overview + demo notice — §15.19)
 └── REQUIREMENTS.md
 ```
 
@@ -946,11 +951,13 @@ Two ways, depending on how precise you need to be:
   varieties, Sortex cleaning) with **clearly-marked `PLACEHOLDER`** rows (moisture, crop year,
   packaging, MOQ, loading port, payment terms, lead time) styled via `.ph` / `.ph-note`. **These
   must be filled in / confirmed before go-live** (joins the §15.10 open items).
-- **Card wiring ("Both" — link + keep RFQ):** product objects in `js/products.js` gain an optional
-  **`detail`** field; Rice has `detail: "rice.html"`. `cardHTML` renders a **"View details"**
-  link (`.detail-link`) in the card footer **only when `detail` is set**, alongside the unchanged
-  **"Request Freight Quote →"** link. So the Rice card on **Home, Products and Agriculture** now
-  links to the PDP while every other card is visually unchanged.
+- **Card wiring (title links to the PDP, RFQ kept):** product objects in `js/products.js` gain an
+  optional **`detail`** field; Rice has `detail: "rice.html"`. When `detail` is set, `cardHTML`
+  renders the **product name (`<h3>`) itself as the link** to the detail page; the unchanged
+  **"Request Freight Quote →"** link remains in the footer. So the Rice card on **Home, Products
+  and Agriculture** links to the PDP via its title while every other card is visually unchanged.
+  *(v1.4 refinement: replaced the earlier separate "View details" footer link — which read as
+  cluttered/redundant — with the clickable title; the `.detail-link` style was removed.)*
 - **CSS added (`css/styles.css`):** `.pdp-lead`, `.pdp-media`, `.pdp-facts`/`.pdp-fact`,
   `.pdp-actions`, `.range-card .range-tag`, `.spec-table`, `.ph`/`.ph-note`, `.detail-link`.
 
@@ -1035,3 +1042,23 @@ Two ways, depending on how precise you need to be:
   for interior pages.
 - **Regeneration:** `<lastmod>` reflects filesystem mtime, so re-run the same directory scan to
   refresh dates after content edits.
+
+### 15.19 README.md (project overview + demo notice)
+- **What:** added a root **`README.md`** as the project's entry-point documentation — purpose,
+  technology, file structure, local-run instructions, key features, a **pre-launch checklist**,
+  deployment notes, and a pointer to this spec.
+- **Demo / evaluation notice (formal):** the README states up front that this is a **demonstration
+  build for validating the client's functional requirements**, that **copywriting is provisional**
+  and the **product catalogue is illustrative**, and that final copy and the complete catalogue
+  **will be finalised after the client reviews and approves the functional requirements**. The same
+  framing is echoed in the pre-launch checklist and the closing copyright note.
+- Documentation only — no change to site markup, styles or behaviour.
+
+### 15.20 Product card — title links to the PDP (refines §15.14)
+- The product card's **`<h3>` name is now the link** to a product's detail page (when the product
+  has a `detail` field); the separate **"View details"** footer link added in §15.14 was **removed**
+  as visually cluttered/redundant. The **"Request Freight Quote →"** link stays in the footer.
+- `cardHTML` (`js/products.js`) wraps the name in an anchor only when `detail` is set; cards without
+  a PDP render a plain title as before. The linked title **inherits the heading's navy colour** at
+  rest (looks identical), with an emerald hover + underline and a keyboard `:focus-visible` ring
+  (`.p-card h3 a` in `css/styles.css`); the dead `.detail-link` style was deleted.
