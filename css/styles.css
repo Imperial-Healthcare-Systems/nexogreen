@@ -474,8 +474,8 @@ body.nav-open .nav-backdrop { opacity: 1; visibility: visible; }
 
 
 /* leadership */
-.leader { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: center; background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: var(--s5); }
-.leader img { width: 100%; border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; }
+.leader { display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: start; background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: var(--s5); }
+.leader img { width: 100%; height: auto; aspect-ratio: 1; align-self: start; object-fit: cover; object-position: center 12%; padding: 5px; background: linear-gradient(150deg, var(--accent), var(--accent-dark)); border-radius: var(--radius-lg); box-shadow: 0 18px 38px -20px rgba(21,122,60,.55); }
 .leader .role { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
 
 /* ----- certifications list ----- */
@@ -564,8 +564,8 @@ body.nav-open .nav-backdrop { opacity: 1; visibility: visible; }
   .product-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-brand { grid-column: 1 / -1; }
-  .leader { grid-template-columns: 1fr; text-align: center; }
-  .leader img { max-width: 220px; margin: 0 auto; }
+  .leader { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .leader img { max-width: 240px; margin: 0 auto; }
 }
 @media (max-width: 900px) {
   .reach, .split, .two-col { grid-template-columns: 1fr; gap: 36px; }
