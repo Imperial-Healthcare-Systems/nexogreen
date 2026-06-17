@@ -7,7 +7,7 @@
   "use strict";
 
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var PHONE = "917845582769";
+  var PHONE = "917867984716";
   var EMAIL = "info@nexogreenexim.com";
 
   /* ---------------------------------------------------------- ICONS (inline) */
@@ -29,7 +29,7 @@
     var productsActive = (page === "products") ? ' aria-current="page"' : "";
     return '' +
     '<div class="container header-inner">' +
-      '<a class="brand" href="index.html" aria-label="NexoGreen EXIM — Home"><img src="assets/logo.png" alt="NexoGreen EXIM" width="142" height="40" /></a>' +
+      '<a class="brand" href="index.html" aria-label="NexoGreen EXIM — Home"><img src="assets/logo-mark.png" alt="NexoGreen EXIM" width="72" height="54" /></a>' +
       '<nav class="main-nav" id="main-nav" aria-label="Primary"><ul class="nav-list">' +
         '<li class="has-dropdown">' +
           '<button class="nav-toggle-link"' + productsActive + ' aria-expanded="false" aria-haspopup="true">Products ' + I.chevron + '</button>' +
@@ -64,9 +64,9 @@
           '<p class="footer-tag">Global Trade, Growth, Trust.</p>' +
           /* §5.2 / §14.8 legal IDs directly beneath the logo */
           '<div class="footer-legal" aria-label="Corporate licensing">' +
-            '<span>CIN: U46530TN2025PTC184973</span>' +
-            '<span>PAN: AAJCE1907E</span>' +
-            '<span>TAN: MRIEO1276</span>' +
+            '<span>CIN: U46309TN2026PTC192345</span>' +
+            '<span>PAN: AALCN5551D</span>' +
+            '<span>TAN: MRIN02806G</span>' +
           '</div>' +
         '</div>' +
         '<div class="foot-col"><h4>Company</h4><ul>' +
@@ -84,14 +84,14 @@
           '<li><a href="request-a-quote.html">Request a Quote</a></li>' +
         '</ul></div>' +
         '<div class="foot-col"><h4>Get in touch</h4><ul class="foot-contact">' +
-          '<li>' + I.pin + '<span>½ A Kuthuriyar Street, Singamparai, Mukkudal, Ambasamudram, Tirunelveli District – 627601, Tamil Nadu, India</span></li>' +
-          '<li>' + I.phone + '<a href="tel:+' + PHONE + '">+91 78455 82769</a></li>' +
+          '<li>' + I.pin + '<span>5/150 North Street, Chellapillaiyarkulam, Anaintha Perumal Nadanur, Alangulam Taluk, Tenkasi District – 627423, Tamil Nadu, India</span></li>' +
+          '<li>' + I.phone + '<a href="tel:+' + PHONE + '">+91 78679 84716</a></li>' +
           '<li>' + I.mail + '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a></li>' +
         '</ul></div>' +
       '</div>' +
       '<div class="footer-bottom">' +
-        '<p>© <span id="year"></span> NexoGreen EXIM Private Limited. All rights reserved. · <a href="legal.html" style="color:#9fb0c4">Legal</a></p>' +
-        '<p>Delivering Nature’s Products to the World.</p>' +
+        '<p>© <span id="year"></span> Nexogreenexim International Private Limited. All rights reserved. · <a href="legal.html" style="color:#d3e0eb">Legal</a></p>' +
+        '<p>Global Trade, Growth, Trust.</p>' +
       '</div>' +
     '</div>';
   }
@@ -157,8 +157,12 @@
     }
 
     // sticky condense + scroll progress
+    // On the homepage the header stays transparent over the hero and turns solid
+    // only after the hero is scrolled past; other pages solidify at 20px as before.
+    var heroSlideshow = document.querySelector(".hero[data-slideshow]");
     function onScroll() {
-      if (window.scrollY > 20) header.classList.add("scrolled");
+      var solidAt = heroSlideshow ? heroSlideshow.offsetHeight - 70 : 20;
+      if (window.scrollY > solidAt) header.classList.add("scrolled");
       else header.classList.remove("scrolled");
       var sp = document.querySelector(".scroll-progress");
       if (sp) {
@@ -262,7 +266,7 @@
     if (!map) return;
     var btns = map.querySelectorAll(".region-btn");
     function light(region) {
-      map.querySelectorAll(".route, .node").forEach(function (el) {
+      map.querySelectorAll(".route, .node, .map-label").forEach(function (el) {
         var r = el.getAttribute("data-region");
         if (region === "all") el.classList.add("lit");
         else el.classList.toggle("lit", r === region);
@@ -270,7 +274,14 @@
       btns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-region") === region ? "true" : "false"); });
     }
     btns.forEach(function (b) {
-      b.addEventListener("click", function () { light(b.getAttribute("data-region")); });
+      var region = b.getAttribute("data-region");
+      var on = function () { light(region); };       // highlight just this region
+      var off = function () { light("all"); };        // revert to all lanes lit
+      b.addEventListener("mouseenter", on);
+      b.addEventListener("mouseleave", off);
+      b.addEventListener("focus", on);                // keyboard parity
+      b.addEventListener("blur", off);
+      b.addEventListener("click", on);                // tap support on touch devices
     });
     light("all"); // default: all lanes illuminated
   }
