@@ -52,6 +52,10 @@ dist/
 build/
 .vite/
 
+# ───────────────────────── Project-specific ─────────────────────────
+# Design mockups — not part of the shipped site
+mockups/
+
 # ───────────────────────── Misc ─────────────────────────
 *.zip
 *.tar.gz

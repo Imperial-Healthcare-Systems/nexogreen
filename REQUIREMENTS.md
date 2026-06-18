@@ -1,8 +1,9 @@
 # NexoGreen EXIM — Frontend Requirements Document
 
-**Version:** 1.4
-**Date:** 2026-06-15
+**Version:** 1.5
+**Date:** 2026-06-18
 **Status:** Approved scope — built; in iteration
+**1.5 changes (Precious Stones 4th sector + hero, footer & copy refresh):** Added **Precious Stones** as a fourth product sector — a new `precious-stones.html` sector page plus four catalog lines (Garnet, Tourmaline, Amethyst, Ruby; HS 7103) wired into `js/products.js` (`LABEL`/`PAGE`/`PRODUCTS`/matrix filters/home spread), the Products dropdown and footer (`js/main.js`), the home + Products pillar grids (`.cat-grid` now 4-up), and the metrics counters (**3→4 sectors, 4→6 continents**) — documented in **§15.22**. Expanded the **home hero slideshow 3→5 slides** with a new `assets/Hero Banner Slide Show/` WebP set — **§15.23**. Reworked the **footer**: larger ratio-preserving logo (40px→88px height), dropped the brand-blurb paragraph, and added **multi-country phone numbers** (two India + one Zambia), mirrored on the Contact page — **§15.24**. Introduced a **`--muted-invert` dark-background text token** that replaces the scattered hardcoded dark-bg greys (`#d3e0eb`/`#aab6c6`/`#9fb0c4`/`#cdd6e2`), gave the pre-footer `.cta-band` the homepage RFQ gradient, and fixed immersive-header dropdown link contrast — **§15.25**. Ran a **copy pass de-emphasizing HS-code framing** across product/sector pages (and dropped the explicit "spices excluded" line, the pillar-card descriptions, reworded the region-toggle meta, and gave Certifications/Logistics image hero banners) — **§15.26**.
 **1.4 changes (SEO, social-share & performance hardening):** A site-wide technical SEO / performance pass. Normalized the **social-share meta tags** on every page — absolute `og:image`, per-page `og:url`, and a full mirrored `twitter:image`/`twitter:title`/`twitter:description` set (plus a complete block added to the previously-bare `404.html`) — documented in **§15.16**. Added **intrinsic `width`/`height`** to every `<img>` (read from the real files), `loading="lazy"` on below-the-fold images, and `fetchpriority="high"` on each page's eager hero image (correcting index's placeholder slideshow dimensions) — documented in **§15.17**. Added a minimal, standards-compliant **`robots.txt`** (allow-all + sitemap reference) and a generated **`sitemap.xml`** (sitemaps.org 0.9, 13 public pages, real `lastmod`, homepage priority 1.0) — documented in **§15.18**. Added a root **`README.md`** with a formal demo/evaluation notice (provisional copy, illustrative catalogue) — documented in **§15.19**. Refined the product card so the **product name links to its detail page** (replacing the separate "View details" link) — documented in **§15.20**.
 **1.35 changes (Contact map + first product detail page + 404):** Added the **office location Google Map** on the Contact page (embedded keyless iframe + "Get directions" button, between the contact section and the footer) — documented in **§15.13** with the procedure to update the pinned location. Introduced the **product detail page (PDP)** type with **`rice.html`** as the first instance (overview / range / specifications / CTA, real rice photo, clearly-marked placeholder spec rows) and wired an optional **`detail`** field + **"View details"** card link in `js/products.js` — documented in **§15.14** including how to add more PDPs. Added a branded **`404.html`** error page (animated shipping-lane motif, gradient code, quick destination links) — documented in **§15.15**.
 **1.3 changes (Implementation reconciliation):** Documented the as-built frontend after a full codebase-vs-spec audit. Adds the new **§15 — v1.3 Iteration Change Log** capturing every divergence and refinement made during the build: the rebuilt **home hero slideshow** (now 3 curated slides, §13.1), **inner-page hero banners** + the `page-hero` stacking-context fix (§6.3/§6.4), the **"Show More" pagination** on product listings (§14.2), the **merchandised product order** (§14.2), the **icon-led product card** (image-free) divergence from §14.2, the **`section--pillars` gradient** and sector-card restyle on the home pillars block (§6.1), the **search-dock** layout hardening (§14.6), and — reversing the v1.2 decision — the re-application of **fixed-background parallax to the "Why partner with us" values block** (§13.2 / §13.8.2 / §14.4). Where §15 conflicts with an earlier section, the in-place `**v1.3:**` note and §15 win.
@@ -1083,3 +1084,60 @@ Two ways, depending on how precise you need to be:
      `.form-field` rules — so RFQ errors are **hidden until `forms.js` flags the field `.invalid`**,
      then shown as small red text, matching the other forms.
 - Files touched: `css/styles.css`, `404.html`.
+
+### 15.22 Precious Stones — new fourth product sector (extends §6.1 / §14.2)
+- Adds a **fourth pillar, "Precious Stones,"** alongside Agriculture, Timber and Leather.
+- **Data (`js/products.js`):** new category key `stones` in `LABEL` ("Precious Stones") and `PAGE`
+  (`precious-stones.html`); four `PRODUCTS` lines — **Garnet** (HS 7103 99), **Tourmaline**
+  (7103 99), **Amethyst** (7103 99), **Ruby** (7103 91) — each flagged *placeholder imagery
+  pending final photography*; `stones` added to the matrix filter list, the `byCat` buckets and
+  the home-preview `order` spread so the category appears in the "All Products" rotation.
+- **Chrome (`js/main.js`):** Products **dropdown** gains a Precious Stones link ("Garnet,
+  tourmaline, amethyst & ruby"); **footer** Explore column gains the link; "All three pillars" →
+  "All four pillars".
+- **Pillar grids:** new 4th `.cat-card` ("04 / Sector") on both `index.html` and `products.html`,
+  linking to `precious-stones.html` (image `assets/hero/Prescious stones card image.jpg`).
+- **New page `precious-stones.html`:** `data-page="products"`, image `.page-hero`, a
+  `data-products="stones"` listing and the shared `.cta-band` (RFQ prefilled `?product=Precious Stones`).
+- **Metrics (`index.html`):** "Primary Core Sectors" **3 → 4**; "Continents Served" **4 → 6**;
+  home/products headings "Three pillars" → **"Four pillars"**.
+- **CSS:** `.cat-grid` changed from `repeat(3, 1fr)` to **`repeat(4, 1fr)`** (§15.6 sector grid).
+- New assets: `assets/hero/garnet.jpg`, `Tourmaline.jpg`, `amethyst product image.jpg`, `Ruby.png`,
+  `Prescious stones card image.jpg`.
+
+### 15.23 Home hero slideshow expanded 3 → 5 slides (revises §15.1 / §13.1)
+- `index.html` hero now carries **5** `.hero-slide` divs + **5** `.hero-dots` (was 3), using a new
+  **WebP** set under `assets/Hero Banner Slide Show/`: `farmer-grains` (eager, `fetchpriority="high"`),
+  `agricultural-land`, `warehouse`, `container-handling`, `ship-at-sea` (all lazy). Replaces the
+  prior `hero/pexels-…avif` + `container-handling.jpg` + `leather-banner.png` set.
+- `initHero()` timing/Ken-Burns/pause behaviour (§15.1) is unchanged — it counts slides at runtime.
+
+### 15.24 Footer + contact phone rework (§5.2 / §6.8)
+- **Logo:** `.footer-brand img` is now **height-driven at 88px** (`width:auto; max-width:100%`) so it
+  keeps native ratio; markup intrinsic size updated 152×40 → 254×88. The **brand-blurb paragraph
+  was removed** — the footer brand column now shows logo + tagline + legal IDs only.
+- **Multi-country phones:** footer and Contact page now list **two India numbers**
+  (+91 78679 84716 · +91 89254 60471) and a **Zambia number** (+260 777 107 185), each tagged with a
+  small `.foot-region` / `.ci-region` country label. New `.foot-phones` grid wraps the stacked rows.
+
+### 15.25 `--muted-invert` dark-bg text token + CTA/dropdown polish (§2.5.1 / §14.4)
+- Added **`--muted-invert: #d3e0eb`** — the dark-background counterpart of `--muted`. Replaces the
+  ad-hoc hardcoded dark-bg greys (`#d3e0eb`, `#aab6c6`, `#9fb0c4`, `#cdd6e2`) across `.section--ink`,
+  metrics labels, region-toggle meta, the RFQ band, footer, page-hero crumbs and the 404 page — one
+  token now governs secondary text on navy.
+- **`.cta-band`** gets the homepage RFQ band's gradient (`var(--primary) → #081320`) so the pre-footer
+  CTA reads as its own section instead of merging into the footer.
+- **Immersive-header fix:** on the home hero, dropdown links were inheriting the white nav text over
+  the white dropdown card; added rules restoring `--primary` (hover `--accent`) for `.dropdown li a`.
+
+### 15.26 Copy pass — HS-code de-emphasis + sector reframing (§9 content)
+- Removed **HS-code-forward framing** from sector/product page leads and meta descriptions
+  (agriculture, products, leather, rice) in favour of buyer-benefit language; HS codes remain on the
+  individual product cards and PDP spec tables.
+- Dropped the explicit **"spices are excluded from our catalog per company policy"** line from the
+  agriculture page (spices remain out of the catalog; the sentence was just removed from public copy).
+- Removed the descriptive `<p>` from each home/products **pillar `.cat-card`** (now heading + link only).
+- Reworded the **region-toggle `.r-meta`** strings on index + global-markets to sector-neutral copy.
+- **Certifications** and **Logistics** page heroes switched from `.page-hero--plain` to **image heroes**
+  (`logistics/export-documents.jpg`, `hero/Logistics Page Hero Banner.png`) with refreshed headings.
+- **About:** "Our Vision / Our Mission / Our Promise" → "Vision / Mission / Promise".

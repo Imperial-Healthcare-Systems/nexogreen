@@ -34,11 +34,12 @@
         '<li class="has-dropdown">' +
           '<button class="nav-toggle-link"' + productsActive + ' aria-expanded="false" aria-haspopup="true">Products ' + I.chevron + '</button>' +
           '<ul class="dropdown">' +
-            '<li><a href="products.html">Products Overview<span>All three pillars at a glance</span></a></li>' +
+            '<li><a href="products.html">Products Overview<span>All four pillars at a glance</span></a></li>' +
             '<li class="divider" role="separator"></li>' +
             '<li><a href="agriculture.html">Agriculture Commodities<span>Grains, pulses, oils, nuts &amp; more</span></a></li>' +
             '<li><a href="timber.html">Timber &amp; Forestry Produce<span>Timber, charcoal &amp; minerals</span></a></li>' +
             '<li><a href="leather.html">Premium Treated Leather<span>Wet blue leather ranges</span></a></li>' +
+            '<li><a href="precious-stones.html">Precious Stones<span>Garnet, tourmaline, amethyst &amp; ruby</span></a></li>' +
           '</ul>' +
         '</li>' +
         nav("global-markets.html", "logistics", "Logistics Network") +
@@ -59,8 +60,7 @@
     '<div class="container">' +
       '<div class="footer-grid">' +
         '<div class="footer-brand">' +
-          '<img src="assets/logo-white.png" alt="NexoGreen EXIM" width="152" height="40" />' +
-          '<p>A trusted global export–import trading partner delivering agriculture, timber &amp; forest produce, and leather to markets worldwide.</p>' +
+          '<img src="assets/logo-white.png" alt="NexoGreen EXIM" width="254" height="88" />' +
           '<p class="footer-tag">Global Trade, Growth, Trust.</p>' +
           /* §5.2 / §14.8 legal IDs directly beneath the logo */
           '<div class="footer-legal" aria-label="Corporate licensing">' +
@@ -81,16 +81,20 @@
           '<li><a href="agriculture.html">Agriculture</a></li>' +
           '<li><a href="timber.html">Timber &amp; Forest Produce</a></li>' +
           '<li><a href="leather.html">Leather</a></li>' +
+          '<li><a href="precious-stones.html">Precious Stones</a></li>' +
           '<li><a href="request-a-quote.html">Request a Quote</a></li>' +
         '</ul></div>' +
         '<div class="foot-col"><h4>Get in touch</h4><ul class="foot-contact">' +
           '<li>' + I.pin + '<span>5/150 North Street, Chellapillaiyarkulam, Anaintha Perumal Nadanur, Alangulam Taluk, Tenkasi District – 627423, Tamil Nadu, India</span></li>' +
-          '<li>' + I.phone + '<a href="tel:+' + PHONE + '">+91 78679 84716</a></li>' +
+          '<li>' + I.phone + '<span class="foot-phones">' +
+            '<span><a href="tel:+' + PHONE + '">+91 78679 84716</a> · <a href="tel:+918925460471">+91 89254 60471</a> <span class="foot-region">India</span></span>' +
+            '<span><a href="tel:+260777107185">+260 777 107 185</a> <span class="foot-region">Zambia</span></span>' +
+          '</span></li>' +
           '<li>' + I.mail + '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a></li>' +
         '</ul></div>' +
       '</div>' +
       '<div class="footer-bottom">' +
-        '<p>© <span id="year"></span> Nexogreenexim International Private Limited. All rights reserved. · <a href="legal.html" style="color:#d3e0eb">Legal</a></p>' +
+        '<p>© <span id="year"></span> Nexogreenexim International Private Limited. All rights reserved. · <a href="legal.html" style="color:#fff">Legal</a></p>' +
         '<p>Global Trade, Growth, Trust.</p>' +
       '</div>' +
     '</div>';
