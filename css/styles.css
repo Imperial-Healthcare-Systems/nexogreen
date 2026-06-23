@@ -51,7 +51,14 @@
 
 /* ------------------------------------------------------------- 2. RESET/BASE */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* overflow-x: clip on the ROOT contains the off-canvas mobile nav drawer
+   (.main-nav, position:fixed translateX(100%)), which sits one drawer-width past
+   the right edge. body's overflow-x:hidden can't clip a fixed element (it's
+   positioned against the viewport), so the drawer was extending page width and
+   showing a white bar on the right when zoomed out. clip (not hidden) avoids
+   creating a scroll container, so vertical scroll and the fixed header are
+   unaffected, and the drawer still slides in when opened. */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
