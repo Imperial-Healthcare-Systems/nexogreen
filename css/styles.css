@@ -681,6 +681,12 @@ body.nav-open .nav-backdrop { opacity: 1; visibility: visible; }
   .main-nav .nav-list { flex-direction: column; align-items: stretch; gap: 2px; }
   .main-nav a, .nav-toggle-link { width: 100%; height: 50px; justify-content: space-between; }
   .main-nav a::after, .nav-toggle-link::after { display: none; }
+  /* Home immersive mode paints header links white for the dark hero. Inside the
+     open white drawer that makes the top-level links invisible — force dark text
+     while the drawer is open (mirrors the .dropdown fix above). */
+  body[data-page="home"].nav-open .site-header:not(.scrolled) .main-nav a,
+  body[data-page="home"].nav-open .site-header:not(.scrolled) .nav-toggle-link { color: var(--primary); text-shadow: none; }
+  body[data-page="home"].nav-open .site-header:not(.scrolled) .main-nav a[aria-current="page"] { color: var(--primary); }
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding: 0 0 0 12px; max-height: 0; overflow: hidden; transition: max-height .3s var(--ease); }
   .has-dropdown:hover .dropdown { max-height: 0; }
   .has-dropdown.open .dropdown { max-height: 400px; }
