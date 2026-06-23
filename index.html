@@ -29,13 +29,44 @@
     <!-- ===================================================== HERO (§6.1) -->
     <section class="hero" data-slideshow aria-label="NexoGreen EXIM — from farm to port">
       <div class="hero-bg" aria-hidden="true">
-        <div class="hero-slide active"><img src="assets/hero-slideshow/farmer-grains.webp" alt="" fetchpriority="high" width="1881" height="836" /></div>
-        <div class="hero-slide"><img src="assets/hero-slideshow/agricultural-land.webp" alt="" loading="lazy" width="1915" height="821" /></div>
-        <div class="hero-slide"><img src="assets/hero-slideshow/warehouse.webp" alt="" loading="lazy" width="1915" height="821" /></div>
-        <div class="hero-slide"><img src="assets/hero-slideshow/container-handling.webp" alt="" loading="lazy" width="1920" height="1280" /></div>
-        <div class="hero-slide"><img src="assets/hero-slideshow/ship-at-sea.webp" alt="" loading="lazy" width="1915" height="821" /></div>
+        <div class="hero-slide active">
+          <picture>
+            <source media="(max-width: 620px)" srcset="assets/hero-slideshow/mobile/farmer-grains.webp" width="1086" height="1448" />
+            <img src="assets/hero-slideshow/farmer-grains.webp" alt="" fetchpriority="high" width="1920" height="1080" />
+          </picture>
+        </div>
+        <div class="hero-slide">
+          <picture>
+            <source media="(max-width: 620px)" srcset="assets/hero-slideshow/mobile/agricultural-land.webp" width="1080" height="1350" />
+            <img src="assets/hero-slideshow/agricultural-land.webp" alt="" loading="lazy" width="1920" height="1080" />
+          </picture>
+        </div>
+        <div class="hero-slide">
+          <picture>
+            <source media="(max-width: 620px)" srcset="assets/hero-slideshow/mobile/warehouse.webp" width="1086" height="1448" />
+            <img src="assets/hero-slideshow/warehouse.webp" alt="" loading="lazy" width="1915" height="821" />
+          </picture>
+        </div>
+        <div class="hero-slide">
+          <picture>
+            <source media="(max-width: 620px)" srcset="assets/hero-slideshow/mobile/container-handling.webp" width="1086" height="1448" />
+            <img src="assets/hero-slideshow/container-handling.webp" alt="" loading="lazy" width="1920" height="1280" />
+          </picture>
+        </div>
+        <div class="hero-slide">
+          <picture>
+            <source media="(max-width: 620px)" srcset="assets/hero-slideshow/mobile/ship-at-sea.webp" width="1086" height="1448" />
+            <img src="assets/hero-slideshow/ship-at-sea.webp" alt="" loading="lazy" width="1915" height="821" />
+          </picture>
+        </div>
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
+      <button type="button" class="hero-arrow hero-arrow--prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" class="hero-arrow hero-arrow--next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
       <div class="container hero-inner">
         <div class="hero-content">
           <span class="eyebrow eyebrow--on-dark">Global Trade · Growth · Trust</span>
@@ -154,7 +185,7 @@
             <a class="stretch" href="leather.html" aria-label="Explore Premium Treated Leather"></a>
           </article>
           <article class="cat-card reveal" data-delay="4">
-            <img src="assets/hero/precious-stones-card.jpg" alt="Precious stones" width="1200" height="630" loading="lazy" />
+            <img src="assets/hero/precious-stones-card.jpg" alt="Precious stones" width="1086" height="1448" loading="lazy" />
             <div class="cat-body">
               <span class="cat-index">04 / Sector</span>
               <h3>Precious Stones</h3>

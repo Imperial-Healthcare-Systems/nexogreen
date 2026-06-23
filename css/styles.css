@@ -264,6 +264,20 @@ body.nav-open .nav-backdrop { opacity: 1; visibility: visible; }
 .hero-dots button { width: 12px; height: 12px; min-width: 0; padding: 0; border-radius: 50%; border: 2px solid rgba(255,255,255,.7); background: transparent; cursor: pointer; transition: background .2s, transform .2s; }
 .hero-dots button[aria-selected="true"] { background: var(--gold-soft); border-color: var(--gold-soft); transform: scale(1.15); }
 
+/* §13.1 hero arrows — revealed by JS only when the pointer nears either edge */
+.hero-arrow { position: absolute; top: 50%; transform: translateY(-50%) scale(.9); z-index: 3;
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  color: #fff; cursor: pointer; background: rgba(11,25,44,.42); border: 1px solid rgba(255,255,255,.35);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s var(--ease), transform .3s var(--ease), background .2s var(--ease); }
+.hero-arrow--prev { left: 22px; }
+.hero-arrow--next { right: 22px; }
+.hero-arrow svg { width: 22px; height: 22px; }
+.hero-arrow.is-visible, .hero-arrow:focus-visible { opacity: 1; pointer-events: auto; transform: translateY(-50%) scale(1); }
+.hero-arrow:hover { background: rgba(11,25,44,.72); }
+@media (max-width: 768px) { .hero-arrow { width: 44px; height: 44px; left: 12px; } .hero-arrow--next { right: 12px; left: auto; } }
+
 /* eyebrow + ghost-dot on dark hero */
 .eyebrow--on-dark { color: var(--gold-soft); margin-bottom: 18px; }
 .eyebrow--on-dark::before { background: var(--gold-soft); }
@@ -677,10 +691,60 @@ body.nav-open .nav-backdrop { opacity: 1; visibility: visible; }
   :root { --section-pad: 64px; }
   .cat-grid, .value-grid, .info-grid, .product-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
-  .hero { min-height: 0; padding-top: calc(var(--header-h) + 32px); }
+  /* banner-forward hero: keep a strong image presence, but calmer than desktop */
+  .hero { min-height: 74vh; padding-top: calc(var(--header-h) + 28px); }
+  .hero-content { max-width: none; }
   .hero-actions .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; }
+  /* long monospace IDs must wrap rather than overflow the viewport */
+  .legal-table td, .spec-table td { word-break: break-word; overflow-wrap: anywhere; }
+}
+
+/* ----------------------------------- 22b. MOBILE-FIRST SIMPLIFICATION
+   Touch devices (no hover): strip hover-only polish and GPU-heavy effects for a
+   calmer, faster experience. Desktop (hover:hover) keeps the full treatment. */
+@media (hover: none) {
+  /* HERO — keep the cross-fade rotation; drop Ken Burns zoom + proximity arrows */
+  .hero-slide.active img, .hero-bg > img { animation: none; transform: none; }
+  .hero-arrow { display: none; }
+
+  /* PRODUCT / CATEGORY CARDS — no hover zoom or lift that "sticks" after a tap */
+  .p-card:hover { transform: none; box-shadow: var(--shadow-card); }
+  .p-card:hover img, .cat-card:hover img { transform: none; }
+  .cat-card:hover .cat-link svg, .freight-link:hover svg, .p-cat:hover { transform: none; }
+
+  /* FLATTEN backdrop-blur layers — each blurred pill is a costly GPU layer that
+     janks the product grid on scroll; solid fills read the same at a glance */
+  .p-cat { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(11,25,44,.6); }
+  .p-cat:hover { background: rgba(11,25,44,.6); }
+  .trust-strip { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(8,22,16,.74); }
+
+  /* CERTIFICATIONS — tooltips can't be hovered on touch, so show the chips in
+     full colour and legible by default (the cert name is always in the chip) */
+  .cert { filter: none; color: var(--primary); }
+}
+
+/* Reduce trust-strip clutter on small phones: tidy 2×2 of icon + title only */
+@media (max-width: 520px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  /* reset dividers, then redraw cleanly for a 2×2 grid */
+  .trust-cell { padding: 18px 16px; gap: 10px; border-right: none; border-bottom: none; }
+  .trust-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.10); }
+  .trust-cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.10); }
+  .trust-cell p { display: none; }        /* titles carry the message; drop the fine print */
+  .trust-cell svg { width: 24px; height: 24px; }
+}
+
+/* Phablet/phone breathing room — close the wide 620→content gap the audit flagged */
+@media (max-width: 480px) {
+  .container { padding: 0 18px; }
+  .hero h1 { margin-bottom: 12px; }
+  .hero-sub { font-size: 1rem; margin-bottom: 22px; }
+  .matrix-toggle { width: 100%; }          /* let category filters wrap full-width, not overflow */
+  .seg { padding: 0 16px; font-size: 13px; }
+  .compliance-inner { gap: 12px 22px; padding: 20px 0; }
+  .cert { font-size: 14px; }
 }
 
 /* ------------------------------------------------ 23. REDUCED MOTION §13.7 */

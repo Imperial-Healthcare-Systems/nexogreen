@@ -227,6 +227,15 @@
     var dots = hero.querySelectorAll(".hero-dots button");
     if (slides.length < 2) return;
     var i = 0, timer = null, DELAY = 6000;
+    // Pointer-capable (desktop) only: proximity arrows + pause-on-hover. On touch
+    // the banner stays a calm auto-rotating cross-fade — no hover-driven switching.
+    var HOVER = window.matchMedia("(hover: hover)").matches;
+
+    // State-driven: the timer runs only when ALL pause conditions are clear, so a
+    // missed mouseleave (e.g. scrolling away while hovering) can never strand it.
+    var hovering = false, focused = false, inView = true;
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function sync() { stop(); if (!REDUCED && !hovering && !focused && inView && !document.hidden) timer = setInterval(function () { go(i + 1); }, DELAY); }
 
     function go(n) {
       slides[i].classList.remove("active");
@@ -235,18 +244,48 @@
       slides[i].classList.add("active");
       if (dots[i]) dots[i].setAttribute("aria-selected", "true");
     }
-    function start() { if (!REDUCED) { stop(); timer = setInterval(function () { go(i + 1); }, DELAY); } }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
     dots.forEach(function (d, idx) {
-      d.addEventListener("click", function () { go(idx); start(); });
+      d.addEventListener("click", function () { go(idx); sync(); });
     });
-    hero.addEventListener("mouseenter", stop);
-    hero.addEventListener("mouseleave", start);
-    hero.addEventListener("focusin", stop);
-    hero.addEventListener("focusout", start);
-    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
-    start();
+
+    // §13.1 manual arrows — revealed only when the mouse nears either edge
+    var arrowPrev = hero.querySelector(".hero-arrow--prev");
+    var arrowNext = hero.querySelector(".hero-arrow--next");
+    if (HOVER && arrowPrev && arrowNext) {
+      arrowPrev.addEventListener("click", function () { go(i - 1); sync(); });
+      arrowNext.addEventListener("click", function () { go(i + 1); sync(); });
+      hero.addEventListener("pointermove", function (e) {
+        if (e.pointerType && e.pointerType !== "mouse") return; // mouse-only proximity
+        var r = hero.getBoundingClientRect();
+        var x = e.clientX - r.left;
+        var zone = Math.max(160, r.width * 0.22);
+        arrowPrev.classList.toggle("is-visible", x <= zone);
+        arrowNext.classList.toggle("is-visible", x >= r.width - zone);
+      });
+      hero.addEventListener("pointerleave", function () {
+        arrowPrev.classList.remove("is-visible");
+        arrowNext.classList.remove("is-visible");
+      });
+    }
+
+    if (HOVER) {
+      hero.addEventListener("mouseenter", function () { hovering = true; sync(); });
+      hero.addEventListener("mouseleave", function () { hovering = false; sync(); });
+    }
+    hero.addEventListener("focusin", function () { focused = true; sync(); });
+    hero.addEventListener("focusout", function () { focused = false; sync(); });
+    document.addEventListener("visibilitychange", sync);
+
+    // Pause when the hero scrolls out of view; resume (self-heal) when it returns.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        sync();
+      }, { threshold: 0.15 }).observe(hero);
+    }
+
+    sync();
   }
 
   /* ----------------------------------------- SEARCH DOCK (§14.6) */

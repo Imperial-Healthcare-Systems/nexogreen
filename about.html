@@ -26,7 +26,10 @@
 <body data-page="about">
   <main id="main">
     <section class="page-hero">
-      <img src="assets/hero/about-handshake.png" alt="" width="1584" height="672" fetchpriority="high" />
+      <picture>
+        <source media="(max-width: 620px)" srcset="assets/hero/mobile/about-handshake.webp" width="1086" height="1448" />
+        <img src="assets/hero/about-handshake.png" alt="" width="1584" height="672" fetchpriority="high" />
+      </picture>
       <div class="container">
         <p class="crumb"><a href="index.html">Home</a> / About Us</p>
         <h1>Built to bridge local producers with global buyers</h1>
@@ -95,7 +98,7 @@
           <img src="assets/team/leadership-portrait.jpg" alt="Dr. Kalirajan Arunachalam, Chief Executive Officer" width="585" height="587" loading="lazy" />
           <div>
             <span class="role">Chief Executive Officer</span>
-            <h3 style="font-size:1.4rem;margin:6px 0 12px">Dr. Kalirajan Arunachalam</h3>
+            <h3 style="font-size:clamp(1.2rem,4.5vw,1.4rem);margin:6px 0 12px">Dr. Kalirajan Arunachalam</h3>
             <p style="color:var(--muted)">A committed nature advocate, Dr. Arunachalam leads NexoGreen EXIM with a vision built on farming roots — maintaining strict control over sourcing, processing, documentation and logistics to ensure reliability and compliance at every stage, and combining traditional farming wisdom with modern export systems.</p>
           </div>
         </div>
