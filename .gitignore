@@ -55,6 +55,8 @@ build/
 # ───────────────────────── Project-specific ─────────────────────────
 # Design mockups — not part of the shipped site
 mockups/
+# External tooling task briefs (e.g. Antigravity headless jobs) — scratch, not shipped
+antigravity/
 
 # ───────────────────────── Misc ─────────────────────────
 *.zip
