@@ -48,12 +48,12 @@
     { cat: "agriculture", name: "Wheat", hs: "1001 19", img: P + "starch-powder/wheat-1001-19.jpg", desc: "Bread, premium, standard and durum/hard wheat varieties for flour, pasta and baked goods." },
     { cat: "agriculture", name: "Corn / Maize", hs: "1005 90", img: P + "cereals/corn-1005-90.jpg", desc: "Yellow maize, white maize and organic corn for food, feed and industrial starch." },
     { cat: "agriculture", name: "Sorghum", hs: "1007 00", img: P + "cereals/sorghum-1007-00.jpg", desc: "Red, white and organic sorghum, a starch-rich millet grain for food and industry." },
-    { cat: "agriculture", name: "Finger Millet (Ragi)", hs: "1008 30", img: P + "cereals/finger-millets-1008-30.jpg", desc: "Red, white and organic finger millet, a drought-resistant, gluten-free cereal." },
-    { cat: "agriculture", name: "Pearl Millet (Bajra)", hs: "1008 20", img: P + "cereals/pearl-miletes-1008-20.jpg", desc: "Organic and feed-grade pearl millet, a climate-smart, nutrient-dense grain." },
-    { cat: "agriculture", name: "Black Gram (Urad)", hs: "0713 31", img: P + "cereals/black-gram-0713-31.jpg", desc: "Whole, dhuli (split), organic and feed-grade urad, a high-protein legume." },
-    { cat: "agriculture", name: "Green Gram (Moong)", hs: "0713 33", img: P + "cereals/green-gram-0713-33.jpg", desc: "Split (dhuli), organic and feed-grade mung bean, a digestible plant protein." },
+    { cat: "agriculture", name: "Finger Millet (Ragi)", hs: "1008 30", img: P + "cereals/finger-millets-1008-30.png", desc: "Red, white and organic finger millet, a drought-resistant, gluten-free cereal." },
+    { cat: "agriculture", name: "Pearl Millet (Bajra)", hs: "1008 20", img: P + "cereals/pearl-miletes-1008-20.png", desc: "Organic and feed-grade pearl millet, a climate-smart, nutrient-dense grain." },
+    { cat: "agriculture", name: "Black Gram (Urad)", hs: "0713 31", img: P + "cereals/black-gram-0713-31.png", desc: "Whole, dhuli (split), organic and feed-grade urad, a high-protein legume." },
+    { cat: "agriculture", name: "Green Gram (Moong)", hs: "0713 33", img: P + "cereals/green-gram-0713-33.png", desc: "Split (dhuli), organic and feed-grade mung bean, a digestible plant protein." },
     { cat: "agriculture", name: "Tyson Chickpeas", hs: "0713 20", img: P + "cereals/tyson-chickpeas-0713-20.jpg", desc: "Desi (black/brown) and Kabuli (cream) chickpeas with a firm, nutty texture." },
-    { cat: "agriculture", name: "Soya Beans", hs: "1201 00", img: P + "cereals/soya-beans-1201-00.jpg", desc: "Yellow, black and edible soya beans, a high-quality plant protein." },
+    { cat: "agriculture", name: "Soya Beans", hs: "1201 00", img: P + "cereals/soya-beans-1201-00.png", desc: "Yellow, black and edible soya beans, a high-quality plant protein." },
     { cat: "agriculture", name: "Papad", hs: "1905 90", img: P + "cereals/papad-1905-90.jpg", desc: "Urad, rice, moong, garlic, pepper, cumin and plain papad wafers." },
 
     /* ---- AGRICULTURE: plant-based protein / pulses ---- */
@@ -63,7 +63,7 @@
 
     /* ---- AGRICULTURE: nuts & oilseeds ---- */
     { cat: "agriculture", name: "Cashew Nuts", hs: "0801 32", img: P + "nuts/cashew-nuts-0801-32.jpg", desc: "Grades W-180, W-210, W-240 and W-320 plus raw in-shell kernels." },
-    { cat: "agriculture", name: "Ground Nuts", hs: "1202 42", img: P + "nuts/ground-nuts-1202-42.jpg", desc: "JL24, K6, TMV2 and Girnar varieties, protein-rich peanuts for snacks and oil." },
+    { cat: "agriculture", name: "Ground Nuts", hs: "1202 42", img: P + "nuts/ground-nuts-1202-42.png", desc: "JL24, K6, TMV2 and Girnar varieties, protein-rich peanuts for snacks and oil." },
     { cat: "agriculture", name: "Sesame Seed", hs: "1207 40", img: P + "nuts/sesame-seed-1207-40.jpg", desc: "White and black sesame seeds, oil-rich with a nutty flavour." },
     { cat: "agriculture", name: "Cocoa Bean", hs: "1801 00", img: P + "nuts/cocoa-bean-1801-00.jpg", desc: "Forastero, Trinitario and Criollo fermented, dried cocoa beans." },
 
